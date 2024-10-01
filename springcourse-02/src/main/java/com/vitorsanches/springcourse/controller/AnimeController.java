@@ -5,9 +5,10 @@ import com.vitorsanches.springcourse.dto.AnimeCreateDTO;
 import com.vitorsanches.springcourse.dto.AnimeReplaceDTO;
 import com.vitorsanches.springcourse.service.AnimeService;
 import com.vitorsanches.springcourse.util.DateUtil;
+//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,7 @@ public class AnimeController {
     }
 
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody AnimeCreateDTO anime) {
+    public ResponseEntity<Anime> save(@RequestBody @Valid AnimeCreateDTO anime) {
         return new ResponseEntity<Anime>((animeService.save(anime)), HttpStatus.CREATED);
     }
 

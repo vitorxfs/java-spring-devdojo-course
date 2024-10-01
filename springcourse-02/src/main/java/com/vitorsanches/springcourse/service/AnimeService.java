@@ -7,9 +7,7 @@ import com.vitorsanches.springcourse.exception.BadRequestException;
 import com.vitorsanches.springcourse.mapper.AnimeMapper;
 import com.vitorsanches.springcourse.repository.AnimeRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -27,7 +25,10 @@ public class AnimeService {
     }
 
     public Anime save(AnimeCreateDTO animeDTO) {
-        return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animeDTO));
+        System.out.println(animeDTO.getName());
+        Anime anime = AnimeMapper.INSTANCE.toAnime(animeDTO);
+        System.out.println(anime.getName());
+        return animeRepository.save(anime);
     }
 
     public void delete(Long id) {
