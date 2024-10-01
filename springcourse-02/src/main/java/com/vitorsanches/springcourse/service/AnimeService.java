@@ -7,6 +7,8 @@ import com.vitorsanches.springcourse.exception.BadRequestException;
 import com.vitorsanches.springcourse.mapper.AnimeMapper;
 import com.vitorsanches.springcourse.repository.AnimeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +18,8 @@ import java.util.List;
 public class AnimeService {
     private final AnimeRepository animeRepository;
 
-    public List<Anime> listAll() {
-        return animeRepository.findAll();
+    public Page<Anime> listAll(Pageable pageable) {
+        return animeRepository.findAll(pageable);
     }
 
     public Anime findByIdOrThrow(Long id) {
