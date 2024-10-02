@@ -5,7 +5,6 @@ import com.vitorsanches.springcourse.dto.AnimeCreateDTO;
 import com.vitorsanches.springcourse.dto.AnimeReplaceDTO;
 import com.vitorsanches.springcourse.service.AnimeService;
 import com.vitorsanches.springcourse.util.DateUtil;
-//import jakarta.validation.Valid;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
